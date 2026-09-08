@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인천인테리어 - 대한민국 최고의 공간 디자인</title>
+    <!-- 구글 폰트: 나눔고딕 -->
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 설정 및 컬러 팔레트 */
+        :root {
+            --dark-blue: #0A1931;
+            --royal-blue: #4169E1;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FA;
+            --text-color: #333333;
+        }
+
+        html {
+            /* 책갈피 기능을 위한 부드러운 스크롤 */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* 네비게이션 헤더 */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 25, 49, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--royal-blue);
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--royal-blue);
+        }
+
+        /* 공통 섹션 스타일 */
+        section {
+            padding: 100px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: #666;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        /* 홈 (히어로 섹션) */
+        .hero {
+            max-width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 25, 49, 0.9), rgba(65, 105, 225, 0.8)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            background-color: var(--royal-blue);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(65, 105, 225, 0.4);
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        /* 회사 소개 섹션 */
+        .about-content {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            color: var(--royal-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            height: 400px;
+            background: var(--dark-blue);
+            border-radius: 20px;
+            box-shadow: 20px 20px 0 var(--royal-blue);
+            background-image: url('https://images.unsplash.com/photo-1556910103-1c02745a872f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 서비스 섹션 */
+        .services-wrapper {
+            background-color: var(--light-bg);
+            max-width: 100%;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-bottom: 5px solid var(--royal-blue);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h4 {
+            color: var(--dark-blue);
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        /* 문의하기 섹션 */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-box {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 4rem;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-box h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #050D1A;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* 애니메이션 클래스 (JS 연동) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* 모바일에서는 메뉴 숨김 (간단 버전) */
+            .hero h1 { font-size: 2.5rem; }
+            .about-content { flex-direction: column; }
+            .about-image { width: 100%; box-shadow: 10px 10px 0 var(--royal-blue); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 / 네비게이션 (책갈피) -->
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo">인천<span>인테리어</span></a>
+            <nav class="nav-links">
+                <a href="#home">홈</a>
+                <a href="#about">회사소개</a>
+                <a href="#services">서비스</a>
+                <a href="#contact">상담문의</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 홈 섹션 -->
+    <section id="home" class="hero">
+        <h1 class="reveal">공간의 가치를 높이는<br>대한민국 최대 인테리어</h1>
+        <p class="reveal">고객의 꿈을 현실로 만드는 프리미엄 디자인 솔루션</p>
+        <a href="#contact" class="btn reveal">무료 견적 상담받기</a>
+    </section>
+
+    <!-- 회사소개 섹션 -->
+    <section id="about">
+        <h2 class="section-title reveal">회사소개</h2>
+        <p class="section-desc reveal">수십 년의 노하우와 트렌디한 감각으로 최상의 공간을 디자인합니다.</p>
+        <div class="about-content">
+            <div class="about-image reveal"></div>
+            <div class="about-text reveal">
+                <h3>왜 인천인테리어인가요?</h3>
+                <p>우리는 단순한 시공을 넘어, 당신의 라이프스타일이 담긴 완벽한 공간을 창조합니다. 대한민국 최대 규모의 자재 네트워크와 전문 디자이너 팀이 기획부터 마감까지 1:1 맞춤형 컨설팅을 제공합니다.</p>
+                <br>
+                <p>다크블루의 신뢰감과 로열블루의 세련됨처럼, 정직한 견적과 압도적인 디자인 퀄리티를 약속드립니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 서비스 섹션 -->
+    <div class="services-wrapper">
+        <section id="services">
+            <h2 class="section-title reveal">아워 서비스</h2>
+            <p class="section-desc reveal">주거공간부터 상업공간까지, 목적에 맞는 최적의 인테리어를 제안합니다.</p>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <h4>주거 인테리어</h4>
+                    <p>아파트, 주택 등 가족의 따뜻함이 머무는 안락하고 실용적인 주거 공간 디자인</p>
+                </div>
+                <div class="service-card reveal">
+                    <h4>상업 인테리어</h4>
+                    <p>카페, 오피스, 매장 등 브랜드의 가치를 돋보이게 하는 트렌디한 상공간 디자인</p>
+                </div>
+                <div class="service-card reveal">
+                    <h4>부분/리모델링</h4>
+                    <p>욕실, 주방 등 필요한 곳만 확실하게 바꾸는 합리적인 부분 시공 솔루션</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 문의하기 섹션 -->
+    <section id="contact" class="contact">
+        <h2 class="section-title reveal">상담문의</h2>
+        <p class="section-desc reveal">당신의 공간, 지금 바로 전문가와 상의하세요.</p>
+        <div class="contact-box reveal">
+            <h3>프로젝트 문의하기</h3>
+            <div class="contact-info">
+                <p><strong>대표전화:</strong> 1588-0000</p>
+                <p><strong>이메일:</strong> design@incheon-interior.com</p>
+                <p><strong>오시는길:</strong> 인천광역시 송도국제대로 123, 디자인타워 1층</p>
+                <br>
+                <a href="mailto:design@incheon-interior.com" class="btn" style="background-color: var(--white); color: var(--dark-blue);">이메일로 문의 남기기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2026 인천인테리어. All Rights Reserved.</p>
+    </footer>
+
+    <!-- 스크롤 애니메이션 자바스크립트 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer를 활용한 스크롤 애니메이션
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // 한 번 나타난 후에는 관찰 해제 (옵션)
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.15, // 요소가 15% 보일 때 작동
+                rootMargin: "0px"
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
